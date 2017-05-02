@@ -1,4 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16E195" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ActivityCategory" representedClassName="ActivityCategory" syncable="YES" codeGenerationType="class">
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GearCategory" inverseName="newRelationship1" inverseEntity="GearCategory" syncable="YES"/>
+        <relationship name="newRelationship1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityEvent" inverseName="newRelationship" inverseEntity="ActivityEvent" syncable="YES"/>
+    </entity>
+    <entity name="ActivityEvent" representedClassName="ActivityEvent" syncable="YES" codeGenerationType="class">
+        <attribute name="eventDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="eventDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="eventName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="isActive" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityCategory" inverseName="newRelationship1" inverseEntity="ActivityCategory" syncable="YES"/>
+        <relationship name="newRelationship1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GearForActivity" inverseName="newRelationship" inverseEntity="GearForActivity" syncable="YES"/>
+    </entity>
+    <entity name="GearCategory" representedClassName="GearCategory" syncable="YES" codeGenerationType="class">
+        <attribute name="categoryName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GearItem" inverseName="newRelationship" inverseEntity="GearItem" syncable="YES"/>
+        <relationship name="newRelationship1" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityCategory" inverseName="newRelationship" inverseEntity="ActivityCategory" syncable="YES"/>
+    </entity>
+    <entity name="GearForActivity" representedClassName="GearForActivity" syncable="YES" codeGenerationType="class">
+        <attribute name="comments" optional="YES" syncable="YES"/>
+        <attribute name="isRequired" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="packedOn" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="packingLocation" optional="YES" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ActivityEvent" inverseName="newRelationship1" inverseEntity="ActivityEvent" syncable="YES"/>
+    </entity>
+    <entity name="GearItem" representedClassName="GearItem" syncable="YES" codeGenerationType="class">
+        <attribute name="isInInventory" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="itemName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="storageLocation" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GearCategory" inverseName="newRelationship" inverseEntity="GearCategory" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="GearCategory" positionX="-650" positionY="198" width="128" height="88"/>
+        <element name="GearItem" positionX="-423" positionY="206" width="128" height="118"/>
+        <element name="ActivityEvent" positionX="-830" positionY="-216" width="128" height="133"/>
+        <element name="GearForActivity" positionX="-587" positionY="-180" width="128" height="118"/>
+        <element name="ActivityCategory" positionX="-837" positionY="170" width="128" height="73"/>
+    </elements>
 </model>
